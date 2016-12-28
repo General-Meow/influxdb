@@ -1,0 +1,10 @@
+# build: docker build -t generalmeow/influxdb:<TAG>-arm -f Dockerfile-arm .
+# run: docker run -d -p <PORT>:<PORT> --name influxdb generalmeow/influxdb:<TAG>-arm
+FROM alpine:3.5
+MAINTAINER Paul Hoang 2016-12-28
+RUN ["mkdir", "-p", "/home/influxdb-1.1.1"]
+ADD ./influxdb-1.1.1_linux_armhf.tar.gz /home/influxdb-1.1.1
+WORKDIR /home/influxdb-1.1.1
+EXPOSE 8086
+ENTRYPOINT ["/home/influxdb-1.1.1/usr/bin/influxd"]
+
