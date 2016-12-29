@@ -1,5 +1,5 @@
 # build: docker build -t generalmeow/influxdb:<TAG>-arm -f Dockerfile-arm .
-# run: docker run -d -p <PORT>:<PORT> --name influxdb generalmeow/influxdb:<TAG>-arm
+# run: docker run -d -p 8086:8086 --name influxdb generalmeow/influxdb:<TAG>-arm
 FROM hypriot/rpi-alpine-scratch
 RUN apk update && \
 apk upgrade && \
