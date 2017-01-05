@@ -6,7 +6,7 @@ apk upgrade && \
 apk add bash && \
 rm -rf /var/cache/apk/*
 MAINTAINER Paul Hoang 2016-12-28
+EXPOSE 8086
 ADD ./influxdb-1.1.1_linux_armhf.tar.gz /home
 WORKDIR /home/influxdb-1.1.1-1
-EXPOSE 8086
 ENTRYPOINT ["/home/influxdb-1.1.1-1/usr/bin/influxd"]
