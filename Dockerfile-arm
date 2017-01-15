@@ -1,5 +1,5 @@
 # build: docker build -t generalmeow/influxdb:<TAG>-arm -f Dockerfile-arm .
-# run: docker run -d -p 8086:8086 --name influxdb generalmeow/influxdb:<TAG>-arm
+# run: docker run -d -p 8086:8086 --name influxdb -v <>:/var/lib/influxdb generalmeow/influxdb:<TAG>-arm
 FROM hypriot/rpi-alpine-scratch
 RUN apk update && \
 apk upgrade && \
@@ -9,4 +9,5 @@ MAINTAINER Paul Hoang 2016-12-28
 EXPOSE 8086
 ADD ./influxdb-1.1.1_linux_armhf.tar.gz /home
 WORKDIR /home/influxdb-1.1.1-1
-ENTRYPOINT ["/home/influxdb-1.1.1-1/usr/bin/influxd"]
+VOLUME /var/lib/influxdb/
+ENTRYPOINT ["/home/influxdb-1.1.1-1/usr/bin/influxd", "-config", "/home/influxdb-1.1.1-1/etc/influxdb/influxdb.conf"]
