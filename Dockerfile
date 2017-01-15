@@ -5,5 +5,5 @@ MAINTAINER Paul Hoang 2016-12-28
 EXPOSE 8086
 ADD ./influxdb-1.1.1_linux_amd64.tar.gz /home
 WORKDIR /home/influxdb-1.1.1-1
-VOLUME /var/lib/influxdb/
+VOLUME /var/lib/influxdb
 ENTRYPOINT ["/home/influxdb-1.1.1-1/usr/bin/influxd", "-config", "/home/influxdb-1.1.1-1/etc/influxdb/influxdb.conf"]
